@@ -1,10 +1,41 @@
 scripts/
 │
 ├── 01_dada2_preprocessing.R
+library(dada2)
+
+# Input/output directories
+# Read paired-end FASTQ files
+# Match forward/reverse samples
+# Filter and trim
+# Learn error rates
+# Dereplicate
+# DADA2 inference
+# Merge paired reads
+# Construct sequence table
+# Remove chimeras
+# Save final ASV table
+
 ├── 02_taxonomic_assignment.R
+taxa <- assignTaxonomy(
+    seqtab_nochim,
+    "silva_nr99_v138.1_train_set.fa.gz",
+    multithread = TRUE
+)
+
+taxa <- addSpecies(
+    taxa,
+    "silva_species_assignment_v138.1.fa.gz"
+)
+
 ├── 03_create_phyloseq_object.R
-│
+ps <- phyloseq(
+    otu_table(seqtab_final, taxa_are_rows = FALSE),
+    tax_table(taxa),
+    sample_data(metadata_final)
+)
+
 ├── 04_alpha_diversity.R
+
 ├── 05_beta_diversity.R
 ├── 06_permanova.R
 ├── 07_logistic_regression.R
