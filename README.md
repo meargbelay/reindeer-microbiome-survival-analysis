@@ -72,23 +72,29 @@ The comparison of these approaches was used to identify taxa repeatedly detected
 ## Project Structure
 
 ```text
-reindeer-microbiome-survival-analysis/
+reindeer-microbiome-survival/
 │
 ├── README.md
-│
-├── R/
-│   ├── 01_data_preprocessing.R
-│   ├── 02_phyloseq_analysis.R
-│   ├── 03_alpha_diversity.R
-│   ├── 04_beta_diversity.R
-│   ├── 05_PERMANOVA.R
-│   └── 06_differential_abundance.R
-│
-├── figures/
+├── data/
+├── metadata/
+├── scripts/
+│   ├── 01_dada2_processing.R
+│   ├── 02_taxonomy_assignment.R
+│   ├── 03_phyloseq_construction.R
+│   ├── 04_relative_abundance.R
+│   ├── 05_alpha_diversity.R
+│   ├── 06_beta_diversity_ordination.R
+│   ├── 07_permanova.R
+│   ├── 08_survival_glm.R
+│   ├── 09_core_microbiome.R
+│   ├── 10_aldex2.R
+│   ├── 11_maaslin2.R
+│   ├── 12_ancombc.R
+│   └── 13_visualization.R
 │
 ├── results/
-│
-└── docs/
+│   ├── figures/
+│   └── tables/
 ```
 
 ## Reproducibility
